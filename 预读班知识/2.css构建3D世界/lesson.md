@@ -55,4 +55,38 @@
     室内全景图,交互可以用three.js去实现(图形学).
     将设计师图投放有两种模式
     1.球面投影
-      在三维空间,每个3D模型都等同于一个多面体(即3D模型只能由不弯曲的平面组成).你只能以一个正多边形表示圆:边越多,圆就越'完美'
+      在三维空间,每个3D模型都等同于一个多面体(即3D模型只能由不弯曲的平面组成).你只能以一个正多边形表示圆:边越多,圆就越'完美'. 
+    2.比较
+      见图images/比较
+    3.公式
+      见图images/球面公式
+
+## 三、集合Touch事件
+-   touchstart
+-   touchmove
+
+## 四、CSS3D库
+    有手写能力得就手写,没有的话就用css3d库
+    1.css3d-engine
+    2.javascript库
+      视觉差 parallax
+      var scene  = doucment.getElementById("scene");
+      var parallax  = new Parallax(scene);
+## 五、案例
+    1..css3d魔方
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform-origin: 80px 80px 0; //中心
+      视距
+        -webkit-prespective
+      立方体投影
+    2.淘宝造物节
+      球面投影
+      function calculateRadius(length, totalNum) {
+        return Math.round(length / (2 * Math.tan(Math.PI / totalNum))) - 3
+      }; //返回偏移的量
+      //四舍五入(每一个div宽度 / 2 * tan(180 / 10) )
+      calculateRadius(129, 20); // 边, 360分成的份数
+      -3 为了不会出现黑边
+      translatez =>('推')
+    3.martix
+      

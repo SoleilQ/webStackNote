@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      width: 300px;
+      position: relative;
+    }
+    .aside {
+      width: 100px;
+      height: 150px;
+      float: left;
+      background: #f66;
+    }
+    .main {
+      height: 200px;
+      background: #fcc;
+      overflow: hidden;
+    }
+    .par {
+      border: 5px solid #fcc;
+      width: 300px;
+      overflow: hidden; //加个overflow: hidden; 高度不会丢失
+    }
+    .child {
+      border: 5px solid #f66;
+      width: 100px;
+      height: 100px;
+      float: left;
+    }
+    p {
+      color: #f55;
+      background: #fcc;
+      line-height: 100px;
+      text-align: center;
+      margin:100px;
+    }
+    .wrap {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="par">
+    <div class="child"></div>
+    <div class="child"></div>
+  </div>
+
+  <div>
+    <p>haha</p>
+    <div class="wrap"> <p>hehe</p></div>
+   
+  </div>
+</body>
+</html>

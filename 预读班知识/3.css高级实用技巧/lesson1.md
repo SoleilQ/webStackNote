@@ -49,4 +49,23 @@
     1.CSS HINT
       
 ### 六、CSS绘制特殊图形 高级技巧  
-### 七、BFC  IFC GFC FFC
+### 七、BFC  IFC GFC FFC   
+    1.BFC
+        (1)BOX:CSS布局的基本单位,直观点来说,就是一个页面是由很多个BOX组成的。元素的类型和display属性,决定了这个BOX的类型.不同类型的BOX,会参与不同的Formatting Context(一个决定如何渲染文档的容器)
+        (2)block-level box: display属性为block,list-item,table的元素(块级),会生成block-level box(块级别的盒).并且参与block formatting context;
+        (3)inline-level box: display属性为inline,inline-block, inline-table的元素,会生成inline-level box.并且参与inline formatting context.
+        (4)Formatting Context 是W3C CSS2.1规范中的一个概念.它是页面中的一块渲染区域,并且有一套渲染规则,它决定了其子元素将如何定位,以及和其他元素的关系和相互作用.最常见的Formatting Context 有 Block Formatting Context(简称BFC)和Inline Formatting Context(简称IFC)
+    2.哪些元素会生成BFC
+        根元素
+        float属性不为none
+        position为absolute或fixed
+        display为inline-block, table-cell, table-caption, flex, inline-flex
+        overflow不为visible
+    3.根据BFC布局规则
+        (1)每个元素的margin box的左边,与包含块border box的左边相接触(对于从左往右的格式化,否则相反).即使存在浮动也是如此
+        (2)BFC的区域不会与float box重叠 是相互独立的
+        (3)加一个overflow:hidden 生成了一个BFC块(粉色区域,来实现自适应两栏布局)
+        (4)计算BFC的高度时,浮动元素也参与计算(overflow:hidden)。如果生成BFC,浮动元素也跟着计算
+        (5)防止垂直margin重叠
+            BOX垂直方向的距离由margin决定.属于同一个BFC的两个相邻box的margin会发生重叠
+            

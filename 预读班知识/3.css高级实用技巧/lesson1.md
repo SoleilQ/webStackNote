@@ -68,4 +68,47 @@
         (4)计算BFC的高度时,浮动元素也参与计算(overflow:hidden)。如果生成BFC,浮动元素也跟着计算
         (5)防止垂直margin重叠
             BOX垂直方向的距离由margin决定.属于同一个BFC的两个相邻box的margin会发生重叠
-            
+            我们可以在p外面包裹一层容器,并触发该容器生成一个BFC。那么两个p便属于同一个BFC,就不会发生margin重叠了。
+    4.总结
+        (1)BFC就是页面上的一个隔离的独立容器,容器里面的子元素不会影响到外面的元素。反之亦是如此。
+        (2)IFC(Inline Formatting Context)直译为:"内联格式化上下文",IFC的line box(线框)高度由其包含行内元素中最高的实际高度计算而来(不受到竖直方向的padding/margin影响)。
+        (3)FFC(Flex Formatting Context)
+        直译为:"自适应格式化上下文",display的值为flex或者inline-flex的元素将会生成自适应容器。
+        (4)GFC(GridLayout Formatting Context)直译为:"网格布局格式化上下文"
+### 八、CSS-Grid-Layout
+### 九、CSS分层与面向对象
+    1.为什么要分层
+        SMACSS
+            可扩展的模块化架构的css
+            使用一套五个层次来划分CSS给项目带来更加结构化的方法：
+            (1)Base-设定标签元素的预设值 PS: html{}  input[type=text]{}
+            (2)Layout-整个网站的[大架构]的外观 PS: #header {margin: 30px 0 };
+            (3)Module-应用在不同页面公共模块 PS: .button{}
+            (4)State-定义元素不同的状态 PS: nav--main{ .active {}}
+            (5)Theme-画面上所有[主视觉]的定义 PS: border-color、background-image
+            修饰符使用的是--,子模块使用_符号
+            <div class="container">
+                <div class="container-header">
+                    <div class="container-header__title">
+                        <h1 class="container-header__title--home"></h1>
+                     </div>
+                </div>
+            </div>
+        BEM
+        SUIT
+        ACSS
+            小粒度的css 语义明显、复用性更强
+            .m-10 {
+                maring: 10px;
+            }
+            .w-50 {
+                width: 50%
+            }
+        ITCSS
+### 八、面试如何回答
+    1.解释一下什么是BFC
+    display为block元素会生成一个block-level box,这样的box渲染的方式是block formatting context.
+    比如说在计算float元素不等高的情况下,有几种方式去处理它。
+        (1)让父元素呈overflow:hidden
+        但是overflow:hidden是让一个元素隐藏掉,为什么会让里面的元素跟着计算高度? 这个时候就是触发了BFC这个布局原则,因为BFC的原则就是可以让里面的浮动元素跟着计算高度.如何触发BFC呢? 加overflow:hidden. 其他生成BFC的方式(见笔记)
+        (2)让父元素float:left

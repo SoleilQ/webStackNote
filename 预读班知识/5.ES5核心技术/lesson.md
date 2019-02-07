@@ -27,6 +27,10 @@
     p();
     new(test.init())()
 
+    //1.20 p在window下声明 调用this的为window
+    //2.60 p为function go()
+    //3.60 
+
 ## this问题
 
 ## 三、DEMO3
@@ -202,7 +206,7 @@
     模块化编程
     var module = (function() {
       var N = 5;
-      function print() {
+      function print() {  
         console.log(N);
       }
       function add(x) {

@@ -151,3 +151,30 @@
     test();
 
 ## 八、短路表达式
+    ||
+    &&
+
+## 九、技巧
+    core_version = "1.19.2";
+    // version: core_version
+    core_Trim = core_version.trim;
+
+    trim: function(data){
+        return core_Trim(data);
+    }
+
+## 十、钩子机制
+    $.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
+    class2type["[object " + name + "]"] = name.toLocaleLowerCase();
+    })
+
+    var data = {
+      index1: 1,
+      index2: 2
+    }
+
+    var s = "index1";
+
+    data[s]&&functuon() {}
+
+## 十一、$.ready

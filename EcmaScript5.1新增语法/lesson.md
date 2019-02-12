@@ -1,5 +1,5 @@
 # EcmaScript5.1新增语法
-
+#### [参考连接](https://www.zhangxinxu.com/wordpress/2012/01/introducing-ecmascript-5-1/)
 ## 一、EcmaScript5.1简介
 
 ## 二、浏览器支持

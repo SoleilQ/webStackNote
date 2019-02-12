@@ -121,3 +121,18 @@
     编译型的语言
     运行速度接近C语言
     充满野心的语言,在浏览器端可能会挑战JavaScript
+
+    package main
+    import "fmt"
+    func main() {
+      fmt.Println("Hello, World");
+    }
+
+    GO语言的特性
+      编译和执行速度极快
+      静态类型的语言
+      支持完全垃圾回收
+      支持多核CPU运算
+      非常适合后端大型程序
+
+    蚂蚁笔记

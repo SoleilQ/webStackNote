@@ -54,7 +54,31 @@
     http://www.cygwin.com/
     view -> full
     字体小 options
-    cd / 根目录
+    cd / 根目录 
 ## 六、Linux的安装和基本命令(补充)
+    centOS
+    Vim编辑器使用
+      Vim是Linux系统上最著名的文本/代码编辑器
+    
+    startx 或者 init5 (init[0123456])
+      0 关机 1:单用户 2:多用户状态没有网络服务 3:多用户状态有网络服务
+      4:系统未使用保留给用户  5:图形界面  6:系统重启
+    
+    touch index.js 
+    vi index.js   按i  wq
 
+    文件夹权限
+      who am  i~chomd 777 用户名
+      文件类型 文件所有者权限           文件所在组对该文件的权限 
+        l 链接        1.r可读  用4表示
+        d 目录        2.w可写 用2表示
+        - 文件        3.x可执行 用1表示
 ## 七、Web服务器基础原理和概念
+    IIS 控制面板 程序  启用windows功能
+    Apache
+    XAMPP 下载安装
+
+    本地访问 localhost/xampp/
+    将自己的文件放进 htdocs文件夹下
+
+

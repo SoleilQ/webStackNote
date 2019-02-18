@@ -33,5 +33,13 @@
         }
         test();
       ?>
+
+      1.3 PHP和MySQL
+        MySQL 是一种数据库。数据库定义了存储信息得结构。
+        在数据库中,存在着一些表。类似HTML表格,数据库含有行、列以及单元。
+        在分类存储信息时,数据库非常有用。
+
+        phpmyadmin
     2. OO的概念以及Prototype
+
     3. PHP和JavaScript的比较

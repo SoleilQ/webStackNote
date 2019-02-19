@@ -34,6 +34,32 @@
         test();
       ?>
 
+      1.2 PHP基础操作
+        $GLOBALS['a']  = "test";
+
+        require_once('a.php');
+        include_once('a.php');
+        都是引入一次外部文件 但两者也有区别  include 不管有没有错仍执行
+        
+        <?php 
+          $arrayTest = array('0' => "苹果" , 1 => "测试" );
+          echo json_encode($arrayTest);
+        ?>
+
+        PHP Session  会话机制  一个页面打开 另一个页面可以获取其变量
+          session_start();
+          $_SESSION['views'] = 1;
+
+        From表单
+        //php设置header
+        header("Context-type: text/html; charset=utf-8");
+        $username = $_REQUEST['username'];
+        if($username == "admin") {
+          echo json_encode(array('msg' => '登陆成功', 'error_code'=> "ok" ));
+        } else {
+          echo json_encode(array('msg' => '登陆失败', 'error_code'=> "no" ));
+        }
+        
       1.3 PHP和MySQL
         MySQL 是一种数据库。数据库定义了存储信息得结构。
         在数据库中,存在着一些表。类似HTML表格,数据库含有行、列以及单元。

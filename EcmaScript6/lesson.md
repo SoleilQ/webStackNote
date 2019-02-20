@@ -36,8 +36,45 @@
           ],
           "plugins": []
         }
-## 二、ES6编程风格(上)
 
+      babel-polyfill
+        Babel默认只转换新的JavaScript句法,而不转换新的API.比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象,以及一些定义在全队对象上的方法(比如Obejct.assign)都不会转码
+
+        npm install --save-dev @babel/polyfill
+
+        其他 js/css ployfill  浏览器增强
+## 二、ES6编程风格(上)
+    const、let
+      1.const 可以提醒大家 不能被改变
+      2.const 比较符合函数式编程
+      3.本质的区别 编译器内部对处理机制 
+    对象解构
+      以前取数据的方法
+      // var s = ["🍌", "🍎", "🍊"];
+      // s[0] s[1] s[2]
+      现在
+      // const s = ["🍌", "🍎", "🍊"];
+      // const [first, second, three] = s;
+      // console.log(three);
+
+      function test() {
+        return {
+          a: "hello",
+          b: 2
+        }
+      }
+      const result = test();
+      const {
+        a,
+        b
+      } = result;
+      console.log(a); //hello
+      //返回多个值 优先使用对象的解构  
+    字符串模板
+
+    对象和数组
+
+    函数
 ## 三、ES6编程风格(中)
 
 ## 四、ES6编程风格(下)

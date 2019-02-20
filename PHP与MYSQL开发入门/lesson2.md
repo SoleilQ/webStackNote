@@ -99,3 +99,46 @@
       了解类与对象
       如何抽象一个类
       如何通过类实例化对象
+
+## 二、构造方法与析构方法
+    构造方法
+      [修饰符] function __construct([参数]) {
+        程序体
+      }
+    构造方法实例
+
+    
+    析构方法
+      [修饰符]function __ destruct([参数]) {
+        程序体
+      }
+    析构方法实例
+
+    <?php
+    /**
+    * 本demo为了测试构造方法和析构方法
+    */
+      class Person
+      {
+        public function __construct($name, $age) 
+        {
+          //dang这个类new的时候自动执行的
+          echo('hello' .$name);
+          echo "<hr/>";
+          $this -> name = $name;
+          $this -> age = $age;
+        }
+        public function data() {
+          return $this -> age;
+        }
+        public function __destruct() {
+          //用途 可以进行资源的释放操作  数据库关闭 读取文件关闭。。
+          //对象被销毁的时候执行 没有代码再去运行了
+          echo "bye bye {$this -> name}";
+          echo "<br/>";
+        }
+      }
+      new Person('first', 30);
+      new Person('second', 30);
+      
+    ?>

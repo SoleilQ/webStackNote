@@ -142,3 +142,57 @@
       new Person('second', 30);
       
     ?>
+
+## 三、PHP面向对象之封装性
+    设置私有成员与私有成员访问
+      封装的修饰符
+        封装性是面向对象编程中的三大特性之一,封装就是把对象中的成员属性和成员方法加上访问修饰符,使其尽可能隐藏对象的内部细节,以达到对成员的访问控制(切记不是拒绝访问)。
+
+        public (公有的 默认)
+        private (私有的)
+        protected (受保护的)
+
+      设置私有成员
+        使用private关键字修饰就是实现了对成员的私有封装。
+       
+      访问私有成员
+        封装后的成员在对象的外部不能直接访问,只能在对象的内部方法中使用$this访问
+
+        class Person {
+          private $name;
+          public function say() {
+            return $this -> name;
+          }
+        }
+      
+      <?php
+        /**
+        * 定义一个类 学习public private protected
+        */
+      class Person {
+        public $name = "zhijia"; //公有的
+        private $age = 27; //私有的
+        protected $money = 10; //受保护的
+
+        //私有的成员方法 不能在类外部直接被访问
+        private function getAge() {
+          return $this -> age;
+        }
+        //被保护的成员方法 不能在类的外部直接被访问
+        protected function getMoney() {
+          return $this -> money;
+        }
+        public function userCard() {
+          echo "age->".$this -> getAge() ."money->". $this -> getMoney();
+        }
+      }
+      $xw = new Person();
+      echo $xw -> userCard();
+      ?>
+    魔术方法__set()
+
+    魔术方法__get()
+
+    魔术方法__isset()
+
+    魔术方法__unset()

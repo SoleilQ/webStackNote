@@ -1,5 +1,5 @@
 # PHP与MYSQL开发入门(中)
-
+#### [参考连接](https://www.cnblogs.com/52php/p/5658145.html)
 ## 一、PHP面向对象的介绍
     1.面向对象的产生
         软件危机的产生
@@ -328,3 +328,50 @@
       is_a --如果对象属于该类或该类是此对象的父类则返回TRUE
       method_exists --检查类的方法是否存在
       property_exists --检查对象或类是否具该属性
+
+## 七、PHP异常处理
+    系统自带的异常处理
+    自定义异常处理
+    捕捉多个异常处理
+      在try代码之后,必须至少给出一个catch代码块,也可以将多个catch代码块与一个try代码块关联使用。
+    
+    代码见 phptest/exception.php、myException.php、errortest.php
+
+## 八、PHP与JavaScript的比较
+    
+    namespace命名空间
+
+    原型链
+    function Car(color) {
+      this.color = color;
+    }
+    Car.prototype.run = function() {
+      console.log(this.color + 'is run ');
+    }
+    function Cruze(color) {
+      Car.call(this, color);
+    }
+    var __prototype = Object.create(Car.prototype);
+    __prototype.constructor = Cruze;
+    Cruze.prototype.gogo = function() {
+      console.log(111);
+    }
+    var result = new Cruze('orange');
+    console.log(result);
+    var result2 = new Car('blue');
+    console.log(result2);
+
+    js常用
+      function
+      if else 
+      while
+      switch
+      var
+      array
+      object 
+      数字
+      数学方法
+      变量类型
+      this call apply prototype
+
+      JQuery

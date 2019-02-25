@@ -135,6 +135,7 @@
 
     Generator
       用的不是很多  主要用async  await
+      
     Class
       class Person {
         constructor(age) {

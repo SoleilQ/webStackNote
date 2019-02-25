@@ -249,3 +249,45 @@
       递归很容易发生"栈溢出"错误(stack overflow);
     
     反柯里化
+
+
+## 作用域链
+    在JavaScript中,函数也是对象,函数对象和其它对象一样,拥有可以通过代码访问的属性和一系列仅供在JavaScript引擎访问的内部属性。其中一个内部属性是[[scope]],该内部属性包含了函数被创建的作用域中对象的集合,这个集合被称为函数的作用域链,它决定了哪些数据能被函数访问
+    var x =1;
+    function foo () {
+      var y = x + 1;
+      return function () {
+        var z = 1 + y;
+        return z;
+      }
+    }
+    foo()();
+
+    var name = 'gloabl';
+    function A(name) {
+        alert(name); //3
+        this.name = name;
+        var name = '1';
+    }
+    A.prototype.name = '2';
+    var a = new A('3');  //参数就是变量声明
+    console.log(a.name); //3
+    delete a.name; //实例上的name没有了
+    console.log(a.name); //2
+
+
+    function fun(n, o) {
+      console.log(o);
+      return {
+          fun:function(m) {
+              return fun(m, n);
+          }
+      }
+    }
+    var a = fun(0); // 
+    a.fun(1); // 0
+    a.fun(2); //1
+    var b = fun(0).fun(1).fun(2).fun(3);
+    var c = fun(0).fun(1);
+    c.fun(2);
+    作用域还原

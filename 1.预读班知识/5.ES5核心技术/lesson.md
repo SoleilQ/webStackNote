@@ -190,7 +190,8 @@
       console.log(3)
     }
     只有事件操作、setTimeout、Ajax是异步队列
-    绑定和延时代码虽然在同步队列代码里面,却是在异步队列里面执行的 while(true)则会在同步队列里面执行 等同步队列执行完才会去异步队列拉
+    绑定和延时代码虽然在同步队列代码里面,却是在异步队列里面执行的 
+    while(true)则会在同步队列里面执行 等同步队列执行完才会去异步队列拉
 
     var list_li = document.getElementsByTagName("li");
     for (var i = 0; i < list_li.length; i++) {

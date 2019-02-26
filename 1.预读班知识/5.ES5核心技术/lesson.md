@@ -177,6 +177,23 @@
     var m = {age: 30};
     test(m);
     console.log(m.v) //20
+    //函数提升
+    function yideng() {
+    console.log(1);
+    }
+    (function(yideng) {
+        yideng(); // 3
+        yideng = function() {
+            console.log(2);
+        }
+        function yideng() {
+            console.log(3);
+        }
+        yideng(); //2  var yideng  函数表达式覆盖了原函数
+        var yideng; 
+        yideng && yideng(); //2
+        yideng(); //2
+    })(yideng);
 
 
     JS分为同步队列  异步队列

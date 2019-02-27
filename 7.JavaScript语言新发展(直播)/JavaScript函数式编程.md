@@ -55,18 +55,41 @@
         Math.abs(Math.abs(-42))
         
     偏应用函数、函数的柯里化
-      传递给函数一部分参数来调用它,让它返回一个函数去处理剩下的函数
-      偏函数之所以"偏",在就在其只能处理那些能与至少一个case语句匹配的输入,而不能处理所有可能的输入
+      偏应用函数
+        传递给函数一部分参数来调用它,让它返回一个函数去处理剩下的函数
+        偏函数之所以"偏",在就在其只能处理那些能与至少一个case语句匹配的输入,而不能处理所有可能的输入
 
-      //带一个函数参数,和该函数的部分参数
-      const partial = (f, ...args) => 
-        (...moreArgs) => f(...args, ...moreArgs)
-      const add3 = (a, b, c) => a +b +c
-      //偏应用"2"和"3" 到"add3"给你一个单参数的函数
-      const fivePlus = partial(add3, 2, 3)
-      fivePlus(4)
-      //bind实现
-      const add1More  = add3.bind(null, 2, 3)// (c) => 2 + 3 + c
+        //带一个函数参数,和该函数的部分参数
+        const partial = (f, ...args) => 
+          (...moreArgs) => f(...args, ...moreArgs)
+        const add3 = (a, b, c) => a +b +c
+        //偏应用"2"和"3" 到"add3"给你一个单参数的函数
+        const fivePlus = partial(add3, 2, 3)
+        fivePlus(4)
+        //bind实现
+        const add1More  = add3.bind(null, 2, 3)// (c) => 2 + 3 + c
+      
+      函数的柯里化
+        柯里化(Curried)通过偏应用函数实现
+        传递给函数一部分参数来调用它,让它返回一个函数去处理剩下的参数。
+
+        var checkage = min => (age => age > min);
+        var checkage18 = checkage(18);
+        checkage(20);
+
+        Code
+        //柯里化之前
+        function(x, y) {
+          return x + y;
+        }
+        add(1, 2)//3
+        //柯里化之后
+        function addX(y) {
+          return function(x) {
+            return x + y;
+          }
+        }
+        addX(2)(1) //3
     函数组合
     Point Free
     声明式与命令式代码

@@ -177,6 +177,7 @@
     var m = {age: 30};
     test(m);
     console.log(m.v) //20
+    
     //函数提升
     function yideng() {
     console.log(1);

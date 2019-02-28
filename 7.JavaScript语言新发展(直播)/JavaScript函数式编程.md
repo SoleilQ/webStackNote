@@ -90,7 +90,27 @@
           }
         }
         addX(2)(1) //3
+
+        import { curry } from 'lodash';
+
+        var match = curry((reg, str) => str.match(reg));
+        var filter = curry((f, arr) => arr.filter(f));
+        var haveSpace = match(/\s+/g);
+        //haveSpace("ffffffff");
+        //haveSpace("ab");
+
+        //filter(haveSpace, ["abcdefg", "Hello World"]);
+        filter(haveSpace)(["abcdefg", "Hello World"]);
+        事实上柯里化是一种"预加载"函数的方法,通过传递较少的参数,得到一个已经记住了这些参数的新函数,某种意义上讲,这是一种对参数的"缓存",是一种非常高效的编写函数的手法
+
     函数组合
+      纯函数以及如何把它柯里化写出的洋葱代码h(g(f(x))),为了解决函数嵌套的问题,我们需要用到"函数组合";
+      我们一起来用柯里化来改他,让多个函数像拼积木一样
+      const compose = (f, g) => (x, f(g(x)));
+      var first = arr => arr[0];
+      var reverse = arr => arr.reverse();
+      var last = compose(first, reverse);
+      last([1, 2, 3, 4, 5]);
     Point Free
     声明式与命令式代码
     惰性求值

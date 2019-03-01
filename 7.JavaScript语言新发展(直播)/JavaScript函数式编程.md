@@ -110,8 +110,13 @@
       var first = arr => arr[0];
       var reverse = arr => arr.reverse();
       var last = compose(first, reverse);
-      last([1, 2, 3, 4, 5]);
+      last([1, 2, 3, 4, 5]);。
+![](images/函数组合.png)
+
     Point Free
+      把一些对象自带的方法转化成纯函数,不要命名转瞬即逝的中间变量
+      这个函数中,我们使用了str作为我们的中间变量,但这个中间变量除了让代码变得长了一点以为是毫无意义的。
+      const f = str => str.toUpperCase().split('');
     声明式与命令式代码
     惰性求值
 ## 当下函数式编程最热的库

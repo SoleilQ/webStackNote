@@ -47,7 +47,7 @@
       var checkage = age => age > min;
       //纯的,这很函数式
       var  checkage = age => age > 18;
-      在不纯的版本中,checkage不经取决于age还有外部变量min。
+      在不纯的版本中,checkage不仅取决于age还有外部变量min。
       纯的checkage把关键字18硬编码在函数内部,扩展性比较差,柯里化优雅的函数式解决
 
       纯度和冥等性
@@ -55,7 +55,7 @@
         Math.abs(Math.abs(-42))
         
     偏应用函数、函数的柯里化
-      偏应用函数
+      **偏应用函数
         传递给函数一部分参数来调用它,让它返回一个函数去处理剩下的函数
         偏函数之所以"偏",在就在其只能处理那些能与至少一个case语句匹配的输入,而不能处理所有可能的输入
 
@@ -66,10 +66,23 @@
         //偏应用"2"和"3" 到"add3"给你一个单参数的函数
         const fivePlus = partial(add3, 2, 3)
         fivePlus(4)
+        /***********************************/
+        const partial = function(f, ...args) {
+          return function(...moreArgs) {
+            return f(...args, ...moreArgs);
+          };
+        };
+        const add3 = function(a, b, c) {
+          return a + b + c;
+        };
+        const fivePlus = partial(add3, 2, 3); // function(...m)
+        fivePlus(4); //9
+        /**********************************/
+
         //bind实现
         const add1More  = add3.bind(null, 2, 3)// (c) => 2 + 3 + c
       
-      函数的柯里化
+      **函数的柯里化
         柯里化(Curried)通过偏应用函数实现
         传递给函数一部分参数来调用它,让它返回一个函数去处理剩下的参数。
 
@@ -117,8 +130,34 @@
       把一些对象自带的方法转化成纯函数,不要命名转瞬即逝的中间变量
       这个函数中,我们使用了str作为我们的中间变量,但这个中间变量除了让代码变得长了一点以为是毫无意义的。
       const f = str => str.toUpperCase().split('');
+      优缺点
+        var toUpperCase = word => word.toUpperCase();
+        var split = x => (str => str.split(x));
+
+        var f = compose(split(''), toUpperCase);
+        f("abcd efgh);
+        这种风格能够帮助我们减少不必要的命名,让代码保持简洁和通用
+
     声明式与命令式代码
-    惰性求值
+      命令式代码的意思就是,我们通过编写一条又一条指令去让计算机执行一些动作,这其中一般都会涉及到很多繁杂的细节。而声明式就要优雅很多了, 我们通过写表达式的方式来声明我们想干什么, 而不是一步一步的指示。
+
+      //命令式
+      let CEOs  = [];
+      for(var i=0; i< companies.length; i++) {
+        CEOs.push(companies[i].CEO);
+      }
+      //声明式
+      let CEOs = companies.map(c => c.CEO);
+
+      优缺点
+        函数式编程的一个明显的好处就是这种声明式的代码, 对于无副作用的纯函数, 我们完全可以不用考虑函数内部是如何实现的, 专注于编写业务代码。优化代码时, 目光只需要集中在这些稳定坚固的函数内部即可。
+        相反, 不纯的函数式的代码会产生副作用或者依赖外部系统环境,使用它们的时候要考虑这些不干胶的副作用。在复杂的系统中,这对于程序员的心智来说是极大的负担。
+
+    惰性求值、惰性函数、惰性链
+      在指令式语言中以下代码会按顺序执行, 由于每个函数都有可能改动或者依赖于其外部的状态, 因此必须顺序执行。
+
+      function someWhatLongOperation1(){someWhatLongOperation1};
+      new LazyChain([2,1,3]);
 ## 当下函数式编程最热的库
 
 ## 函数式编程的实际应用场景

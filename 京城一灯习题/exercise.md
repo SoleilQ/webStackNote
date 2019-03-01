@@ -32,3 +32,12 @@
     B 一灯
     C undefined
     D function big() {}
+
+## 3.
+    请选择如下HTML代码在chrome中的执行结果
+    <p>京程<div>一灯</div></p>
+
+    A <p>京程<div>一灯</div></p>
+    B <div>一灯</div><p>京程</p>
+    C <p>京程</p><div>一灯</div>
+    D <div><p>京程一灯</p></div>

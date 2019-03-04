@@ -41,3 +41,37 @@
     B <div>一灯</div><p>京程</p>
     C <p>京程</p><div>一灯</div>
     D <div><p>京程一灯</p></div>
+
+## 4
+    CSS中的有些属性可以让一个块级元素当成两个甚至更多去使用,节省了html数量
+    
+    A 这波操作没问题，我也搞过
+    B这个完全没有实现的可能
+
+## 5
+    请写出以下代码的执行结果?
+      Object.prototype.a  = 1;
+      Function.prototype.a  = 2;
+      function yideng () {}
+      var ins = new yideng();
+      console.log(ins.a);
+
+    A 2
+    B 1
+    C 0
+    D undefined
+
+## 6
+    请写出以下代码的执行结果?
+      var a = "yideng";
+      function test() {
+        var a = "yideng2";
+        var init = new Function("console.warn(a)");
+        init();
+      }
+      test();
+
+      A yideng
+      B yideng2
+      C undefined
+      D a is not defined

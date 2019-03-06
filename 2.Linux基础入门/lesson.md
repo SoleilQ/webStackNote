@@ -6,7 +6,7 @@
       Linux存在着许多不同的Linux版本,但它们都使用了Linux内核
       Linux可安装在各种计算机硬件设备中,比如手机、平板电脑、路由器、视频游戏控制台、台式计算机、大型机和超级计算机
     2.选择Linux发行版
-      Linux发行版简单来说就是将Linux内核与应用软件做一个打包。较知名的发行版有:Ubnutu、RedHat等
+      Linux发行版简单来说就是将Linux内核与应用软件做一个打包。较知名的发行版有:Ubuntu、RedHat等
 
       https://www.linux.org/
       linux kernel

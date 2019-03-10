@@ -98,3 +98,35 @@
       所以this指向的是arguments这个伪数组也是(对象)
     第二个输出结果:
       callee是arguments的一个属性,主要返回当前arguments直属的函数体。所以this.callees是返回fn。每一个函数有一个length属性主要用来返回函数的形参的所以就是1
+
+## 8
+    const pro = new Promise((resolve, reject) => {
+      setTimeout(() => {
+      resolve(1); 
+      });
+      resolve(2);
+      console.log('yideng');
+    })
+    pro.then(res => console.log(res));
+    console.log('end');
+
+    A end yideng 2 1
+    B end yidneg 1 2
+    C yideng end 2 1
+    D yideng end 2
+
+    Promise属于异步队列,但是声明的阶段属于同步。所以先输出yideng,然后接下来是同步执行栈的end,接下来运行异步队列的2 setTimeout属于异步队列,此时Promise的状态已经改变故resolve无效。
+
+
+## 9
+    console.log( {} + []);
+    {} + []
+
+    A [Obejct Array][Object Obejct], [Object Obecjt][Obejct Array]
+    B 0[obecjt Obejct], [obejct Obejct]0
+    C [object Obejct], 0
+    D [object Obejct], [object Object]
+    
+    1.{} + []: 根据语句优先原则。{}被理解成为符合语句块,因此相当于{} + [], []为空所以结果是0
+    2.console.log({} + [])：js把()中语句当做是一个表达式,因此{}不能被理解为语句块而被理解成"[object Object]" + ""
+    其实上面两个结果相同,原理也一样。只不过{}作为右值出现被理解为对象接量

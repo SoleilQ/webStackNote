@@ -259,7 +259,48 @@
           一般约定,函子的标志就是容器具有map方法.该方法将容器里面的每一个值,映射到另一个容器。上面的例子说明,函数式编程里面的运算，都是通过函子完成,即运算不直接针对值，而是针对这个值的容器----函子。函子本身具有对外接口(map方法),各种函数就是运算符,通过接口接入容器,引发容器里面的值的变形
 
           因此,学习函数式编程,实际上就是学习函子的各种运算。由于可以把运算方法封装在函子里面,所以又衍生出各种不同类型的函子,有多少种运算,就有多少种函子。函数式编程就变成了运用不同的函子,解决实际问题。
-          
+
+        of方法
+          你可能注意到了,上面生成的新的函子的时候,用了new命令。这实在太不像函数式编程了,因为new命令是面向对象编程的标志。
+          函数式编程一半约定,函子有一个of方法,用来生成新的容器。  
+          Functor.of = function(val) {
+            return new Functor(val);
+          };
+
+          Functor.of(2).map(function(val) {
+            return two + 2;
+          });
+          Functor(4);
+
+      Maybe函子
+        函子接受各种函数,处理容器内部的值。这里就有一个问题,容器内部的值可能是一个空值(比如null),而外部函数未必有处理空值的机制,如果传入空值,很可能就会出错。
+        Functor.of(null).map(function(s) {
+          return s.toUpperCase();
+        });
+        //TypeError
+        class Maybe extends Functor {
+          map(f) {
+            return this.val ? Maybe.of(f(this.val)) : Maybe.of(null);
+          }
+        }
+        Maybe.of(null).map(function(s) {
+          return s.toUpperCase();
+        })
+        //Maybe(null)
+        var Maybe = function(x) {
+          this.__value = x;
+        }
+        Maybe.of = function(x) {
+          return new Maybe(x);
+        }
+        Maybe.prototype.map = function(f) {
+          return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this.__value));
+        }
+        Maybe.prototype.isNothing = function() {
+          return (this.__value === null || this.__value === undefined);
+        }
+        //新的容器我们称之为Maybe
+
       错误处理、Either、AP
       IO
       Monad

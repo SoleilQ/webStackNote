@@ -130,3 +130,36 @@
     1.{} + []: 根据语句优先原则。{}被理解成为符合语句块,因此相当于{} + [], []为空所以结果是0
     2.console.log({} + [])：js把()中语句当做是一个表达式,因此{}不能被理解为语句块而被理解成"[object Object]" + ""
     其实上面两个结果相同,原理也一样。只不过{}作为右值出现被理解为对象接量
+
+## 10
+    var f = function yideng(a) {
+      yideng = a;
+      console.log(typeof yideng);
+      return 23;
+    };
+    f("京程一灯");
+    console.log(typeof yideng);
+
+    调用函数f,变量替换了yideng函数为字符串。这时理应得到的结果是string。但是是function,因为函数名yideng是只读的。所以还是函数
+
+    函数名yideng只能在函数体内部被使用,试图在函数外部使用yideng会报错的。所以是undefined
+
+
+## 11
+    function fn(num) {
+      console.log(this.length);
+    }
+    var yideng = {
+      length: 5,
+      method: function() {
+        fn('京程一灯');
+        arguments[0]();
+      }
+    }
+    yideng.method(fn, 1);
+    //0, 2
+
+    fn('京程一灯'); 此时this指向window, fn读取window.length=0. 为什么呢? 因为window.length代表iframe数量
+    argument[0]()此时代表fn内的this代表arguments,arguments代表yideng.method实参。所以结果等于2
+
+    与试卷 第10题类似 但是要区分开

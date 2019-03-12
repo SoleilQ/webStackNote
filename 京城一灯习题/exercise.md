@@ -163,3 +163,40 @@
     argument[0]()此时代表fn内的this代表arguments,arguments代表yideng.method实参。所以结果等于2
 
     与试卷 第10题类似 但是要区分开
+
+
+## 12
+    function yideng(){}
+    yideng.__proto__.__proto__.constructor.constructor.constructor
+    
+    A Function
+    B Obejct
+    C null
+    D yideng
+    E undefined
+
+    yideng.__proto__ = Function.prototpye
+    Function.prototpye.__proto__ = Obejct.prototype
+    Obejct.prototype.constructor = Object
+    Object.constructor 从 Function.prototpye去找结果是Function
+    最后Function.constructor最特殊因为它的__proto__指向的是自己的prototype所以还是Function自己
+
+## 13
+    var o ={
+      foo: function() {
+        console.log("京程");
+      },
+      bar() {
+        console.log("一灯");
+      }
+    };
+    var f = o.foo.bind({});
+    new f();
+
+    var p = o.bar.bind({});
+    new p();
+
+    A 京程一灯
+    B f is not a constructor, p is not a constructor
+    C f is not a constructor, 一灯
+    D 京程, p is not a constructor

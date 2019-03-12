@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // if(false) {
+    //   var a = 1;
+    // }
+    // console.log(a); //undefined
+    
+    //变量名和函数名相同时,变量没有被赋值时,函数生效
+    // alert(a);
+    // a();
+    // var a = 3;
+    // function a() {
+    //   console.log(10);
+    // }
+    // alert(a);
+    // a = 6;
+    // a();
+
+
+    var  a = function yideng(num) {
+      yideng = num;
+      typeof yideng; // function 只读的
+      return 1;
+    } 
+    a(1);
+    console.log(typeof yideng());  // yideng is not defined  只能在内部使用
+  </script>
+</body>
+</html>

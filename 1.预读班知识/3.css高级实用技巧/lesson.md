@@ -112,3 +112,7 @@
         (1)让父元素呈overflow:hidden
         但是overflow:hidden是让一个元素隐藏掉,为什么会让里面的元素跟着计算高度? 这个时候就是触发了BFC这个布局原则,因为BFC的原则就是可以让里面的浮动元素跟着计算高度.如何触发BFC呢? 加overflow:hidden. 其他生成BFC的方式(见笔记)
         (2)让父元素float:left
+
+
+    
+    mix-blend-mode

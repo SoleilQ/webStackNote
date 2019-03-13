@@ -52,3 +52,18 @@
       s.init();
 
     10.TDZ 暂时性死区
+
+    11.使用new操作符
+      (1)创建了一个新的对象;
+      (2)将构造函数的作用域赋给新对象(this就指向了这个新对象);
+      (3)执行构造函数中的代码(为这个新对象添加属性);
+      (4)返回新对象;
+
+      function Person() {};
+      var obj = new Person();
+
+      1.var obj = {};
+      2. obj._proto_ = Person.prototype;
+      3. Person.call(obj);
+      将Person函数对象的this指针替换成了obj,然后再调用Peron函数
+

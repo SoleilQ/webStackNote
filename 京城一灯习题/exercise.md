@@ -79,7 +79,7 @@
 ## 7
     function yideng(a, b, c) {
       console.log(this.length);
-      console.log(this.callee.length)
+      console.log(this.callee.length) //arguments.callee 是一个指向正在执行函数的指针
     }
 
     function fn(d) {

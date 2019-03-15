@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1.手写bind
+    //2.深拷贝
+    function Car(color) {
+      this.color = color;
+    }
+    Car.prototype.show = function () {
+      console.log(this.color);
+    }
+
+    function BMW(color) {
+      //属性的构造函数执行了一次父类
+      Car.call(this, color);
+    }
+
+    var __prototype__ = Object.create(Car.prototype);
+    BMW.prototype = __prototype__;
+    BMW.prototype.constructor = BMW;
+    var bmw = new BMW('red');
+    bmw.show();
+
+
+    //ES6只是语法糖
+    class Car{
+      constructor(color) {
+        this.color = color;
+      }
+
+      show() {
+        console.log(this.color);
+      }
+    }
+
+    class BMW extends Car {
+      constructor(color) {
+        super(color);
+        super.xx = 'yideng';  //super是父类  不带括号执行= this
+      }
+      test() {
+        console.log(1);
+      }
+    }
+    BMW.prototype.test= function() {
+      console.log(2);
+    }
+    const bmw = new BMW('red');
+    //bmw.show();
+    bmw.test();  //2  class 本质还是function   只有函数才有原型的属性
+    Car.xx //  undefined
+    BMW.xx // yideng
+  </script>
+</body>
+
+</html>

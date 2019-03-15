@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //不同的浏览器有不同的情况
+    //1.老式浏览器 ie6 ie7  函数提升
+    //2 现代浏览器 变量提升
+    function yideng() {
+      console.log(1);
+    };
+    (function() {
+      //var yideng;
+      if(false) {
+        function yideng() {
+          console.log(2);
+        }
+      }
+      yideng();
+    })();
+
+  </script>
+</body>
+
+</html>

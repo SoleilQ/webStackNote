@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var length = 10;
+    function fn() {
+      console.log(this.length);
+    }
+    var yideng = {
+      length: 5,
+      method: function(fn) {
+        fn();  //如果把 var length 去掉 没有人调fn  指向window    window.length == 页面iframe 的个数
+        arguments[0](); // this 指向arguments  //2
+      }
+    };
+    yideng.method(fn, 1);
+
+
+    function yideng() {};
+    yideng.prototype.a = 11;
+    yideng.a   //undefined
+    //如果new 的话   yideng.__proto__ = yideng.prototype;
+
+    function yideng() {}
+    yideng.prototype.constructor.__proto__.__proto__.constructor.constructor.constructor
+
+    //Object.__proto__ -> Function.prototype.constructor  -> Function
+  </script>
+</body>
+
+</html>

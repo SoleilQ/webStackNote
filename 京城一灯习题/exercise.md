@@ -200,3 +200,18 @@
     B f is not a constructor, p is not a constructor
     C f is not a constructor, 一灯
     D 京程, p is not a constructor
+
+## 14 
+    请问以下代码若想输出"京程一灯"字符串 yideng有实现的可能性吗?
+
+    var yideng = ?
+    if(yideng == 1 && yideng ==2 && yideng == 3) {
+      console.log("京程一灯");
+    }
+
+    A 不可能实现 因为JavaScipt语法&&必须满足三个条件都成立
+
+    B 有办法, 且有三种以上的方式能实现正常输出"京程一灯"字符串
+
+
+## 

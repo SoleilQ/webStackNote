@@ -21,4 +21,4 @@ $xiaohong->age = 22;
 $age = $xiaohong->info();
 echo '<br/>';
 echo $age;
-?>
+ 

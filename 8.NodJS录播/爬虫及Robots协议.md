@@ -16,3 +16,6 @@
     基于websocket的解决方案
 
     socket.io
+
+    SSE(Server-Send Event)
+    服务器推送数据的新方式
